@@ -36,7 +36,8 @@ fun InputForm(
             value = networkIp,
             onValueChange = { networkIp = it },
             label = { Text("Network IP") },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
         )
 
         TextField(
@@ -61,9 +62,6 @@ fun InputForm(
 @Composable
 fun InputFormPreview() {
     InputForm(
-        onSubmit = { networkIp, subnetMask ->
-            // Preview implementation - print the values to the console
-            println("Network IP: $networkIp, Subnet Mask: $subnetMask")
-        }
+        onSubmit = { _, _ -> }
     )
 }
