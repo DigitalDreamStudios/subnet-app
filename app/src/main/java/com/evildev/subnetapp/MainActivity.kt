@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.evildev.subnetapp.ui.SubnetApp
-import com.evildev.subnetapp.ui.components.SubneteoHeader
+import com.evildev.subnetapp.ui.components.AppHeader
 import com.evildev.subnetapp.ui.theme.SubnetAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -23,28 +23,27 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Tittle()
-                    SubnetApp()
+                    AppHeader(
+                        content = {
+                            Box(modifier = Modifier.fillMaxSize()) {
+                                SubnetApp()
+                            }
+                        }
+                    )
                 }
             }
         }
     }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
-fun Tittle() {
-    Box(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        SubneteoHeader()
-    }
-}
-
-
-
-@Preview(showBackground = true)
-@Composable
-fun SubnetAppPreview() {
-    SubnetApp()
+fun PreviewAppHeader() {
+    AppHeader(
+        content = {
+            Box(modifier = Modifier.fillMaxSize()) {
+                SubnetApp()
+            }
+        }
+    )
 }
