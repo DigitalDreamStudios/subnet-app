@@ -48,6 +48,22 @@ private fun calculateSubnet(networkIp: String, subnetMask: String): NetworkData?
         return null
     }
 
+    // Validate IP parts
+    for (part in networkParts) {
+        val value = part.toIntOrNull()
+        if (value == null || value < 0 || value > 253) {
+            return null
+        }
+    }
+
+// Validate mask parts
+    for (part in maskParts) {
+        val value = part.toIntOrNull()
+        if (value == null || value < 0 || value > 255) {
+            return null
+        }
+    }
+
     val network = mutableListOf<Int>()
     val ip = mutableListOf<Int>()
     val broadcast = mutableListOf<Int>()
